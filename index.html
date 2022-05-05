@@ -1,367 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #114;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #114;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #114;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #114;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #114;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #114;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      The Benefits of Having an Insurance Agency | Luxe Insurance Brookers
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://luxeinsurancebrokers.com/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://goo.gl/maps/XBENp7FhcugGeiFk7">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>The Benefits of Having an Insurance Agency</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
+        <!-- content -->
 
-  .two-col div {
-    width: 100%;
-  }
+        <section>
+          <p>
+            Insurance agencies provide a variety of services for their clients.
+            Insurance agencies can offer advice about which insurance policies
+            are best for the client’s needs, and will also help them to find
+            other service providers such as doctors or lawyers. They may also
+            assist in filling out forms and paperwork about an individual’s
+            insurance coverage. As long as you have enough money, there is no
+            limit to what type of plans your agency can provide you with.
+          </p>
+          <p>
+            Insurance agencies offer a wide range of different types of coverage
+            depending on the person’s specific needs and want:
+            <a
+              href="https://luxeinsurancebrokers.com/auto-insurance-scottsdale-arizona/"
+              >auto</a
+            >,
+            <a
+              href="https://luxeinsurancebrokers.com/home-insurance-scottsdale-arizona/"
+              >home</a
+            >, life, health care, etc., so it is easy to get confused by all of
+            the options available. For example, if someone has a car they might
+            want to ensure that their vehicle is protected with automobile
+            insurance. Homeowners should have home insurance to protect their
+            property in case of theft, fire, or natural disaster.
+          </p>
+          <p>
+            An insurance agent can help clients understand what type of coverage
+            they need and then find the best policy for them at the best price.
+            Insurance agents work with several different insurance companies, so
+            they can compare rates and find the best deal for their clients.
+            They can also provide advice about whether or not a particular
+            policy is a good fit for the client’s needs.
+          </p>
+          <p>Here are some of the benefits of having an insurance agency:</p>
+          <a
+            class="button-link"
+            href="https://luxeinsurancebrokers.com/the-benefits-of-having-an-insurance-agency/"
+            >Read Post</a
+          >
+        </section>
 
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>The Benefits of Having an Insurance Agency | Luxe Insurance Brookers</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://luxeinsurancebrokers.com/">Main</a></li>
-      <li class="nav-item"><a href="https://goo.gl/maps/XBENp7FhcugGeiFk7">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>The Benefits of Having an Insurance Agency</h1>
-      </section>
-
-      <!-- content -->
-      
-      <section>
-        <p>
-          Insurance agencies provide a variety of services for their clients. Insurance agencies can offer advice about which insurance policies are best for the client’s needs, and will also help them to find other service providers such as doctors or lawyers. They may also assist in filling out forms and paperwork about an individual’s insurance coverage. As long as you have enough money, there is no limit to what type of plans your agency can provide you with.
-        </p>
-        <p>
-          Insurance agencies offer a wide range of different types of coverage depending on the person’s specific needs and want: <a href="https://luxeinsurancebrokers.com/auto-insurance-scottsdale-arizona/">auto</a>, <a href="https://luxeinsurancebrokers.com/home-insurance-scottsdale-arizona/">home</a>, life, health care, etc., so it is easy to get confused by all of the options available. For example, if someone has a car they might want to ensure that their vehicle is protected with automobile insurance. Homeowners should have home insurance to protect their property in case of theft, fire, or natural disaster.
-        </p>
-        <p>
-          An insurance agent can help clients understand what type of coverage they need and then find the best policy for them at the best price. Insurance agents work with several different insurance companies, so they can compare rates and find the best deal for their clients. They can also provide advice about whether or not a particular policy is a good fit for the client’s needs.
-        </p>
-        <p>
-          Here are some of the benefits of having an insurance agency:
-        </p>
-          <a class="button-link"
-                href="https://luxeinsurancebrokers.com/the-benefits-of-having-an-insurance-agency/">Read Post</a>
-      </section>
-
-      <section>
-        <div class="two-col">
-          <div>
-            <h2>
-              Access to a Variety of Insurance Products and Services
-            </h2>
-            <p>
-              An insurance agency can provide you with a variety of services and products to help protect your financial future.
-            </p>
-            <p>
-              Insurance protects against the risk of unexpected events such as accidents, natural disasters, and death. Policies offer protection for life’s different stages – homeownership, retirement, college savings, or even an emergency fund in case you lose your job. Insurance provides peace of mind by protecting what matters most to you today while also planning for tomorrow’s challenges – like the cost of long-term care or providing a nest egg if someone becomes disabled or dies too young.
-            </p>
-            <p>
-              It’s important to have enough coverage so that when something bad happens, there are funds available to get back on your feet again quickly. The right type and amount of coverage depending on your individual needs and circumstances. An insurance professional can help you determine the right coverage for you and your family.
-            </p>
+        <section>
+          <div class="two-col">
+            <div>
+              <h2>Access to a Variety of Insurance Products and Services</h2>
+              <p>
+                An insurance agency can provide you with a variety of services
+                and products to help protect your financial future.
+              </p>
+              <p>
+                Insurance protects against the risk of unexpected events such as
+                accidents, natural disasters, and death. Policies offer
+                protection for life’s different stages – homeownership,
+                retirement, college savings, or even an emergency fund in case
+                you lose your job. Insurance provides peace of mind by
+                protecting what matters most to you today while also planning
+                for tomorrow’s challenges – like the cost of long-term care or
+                providing a nest egg if someone becomes disabled or dies too
+                young.
+              </p>
+              <p>
+                It’s important to have enough coverage so that when something
+                bad happens, there are funds available to get back on your feet
+                again quickly. The right type and amount of coverage depending
+                on your individual needs and circumstances. An insurance
+                professional can help you determine the right coverage for you
+                and your family.
+              </p>
+            </div>
+            <div>
+              <img
+                style="height: 550px; width: 100%"
+                src="https://secureservercdn.net/198.71.233.70/n8e.647.myftpupload.com/wp-content/uploads/2021/09/General-Liability-Insurance-Coverage.jpg"
+                alt="Insurance Agency Scottsdale, Arizona"
+              />
+            </div>
           </div>
-          <div>
-            <img style="height: 550px; width: 100%" src="https://secureservercdn.net/198.71.233.70/n8e.647.myftpupload.com/wp-content/uploads/2021/09/General-Liability-Insurance-Coverage.jpg" alt="Insurance Agency Scottsdale, Arizona">
+        </section>
+
+        <section>
+          <h2>Expertise</h2>
+          <p>
+            Most people don’t think about insurance until they need it. And by
+            that time, it’s often too late. That’s why it’s important to have an
+            insurance agency you can trust to help you when you need it most. An
+            insurance agency with the expertise to guide you through the complex
+            world of insurance can make all the difference when something goes
+            wrong.
+          </p>
+          <p>
+            At Luxe Insurance Brokers, we pride ourselves on our expertise. We
+            have been helping people find the right insurance policies for their
+            needs for years, and we are always up-to-date on the latest changes
+            in the industry. Whether you need car insurance, homeowners
+            insurance, or health insurance, we can help you find the right
+            policy for your needs.
+          </p>
+          <p>
+            In addition to our expertise, we also offer our clients personal
+            service. We know that when you need to file a claim, you want
+            someone you can talk to who will help you through the process. At
+            Luxe Insurance Brokers, we are always here to help our clients get
+            the most out of their insurance policies.
+          </p>
+          <a class="button-link" href="https://luxeinsurancebrokers.com/"
+            >Visit Us</a
+          >
+        </section>
+
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://lh3.googleusercontent.com/geougc/AF1QipM-is7h5IKBcUPoXKnwBPGXCXHGsp4_28UkX1Bo=h400-no"
+              alt="Insurance Agency Scottsdale, Arizona"
+            />
           </div>
-        </div>
-      </section>
-      
-      <section>
-        <h2>
-          Expertise
-        </h2>
-        <p>
-          Most people don’t think about insurance until they need it. And by that time, it’s often too late. That’s why it’s important to have an insurance agency you can trust to help you when you need it most. An insurance agency with the expertise to guide you through the complex world of insurance can make all the difference when something goes wrong.
-        </p>
-        <p>
-          At Luxe Insurance Brokers, we pride ourselves on our expertise. We have been helping people find the right insurance policies for their needs for years, and we are always up-to-date on the latest changes in the industry. Whether you need car insurance, homeowners insurance, or health insurance, we can help you find the right policy for your needs.
-        </p>
-        <p>
-          In addition to our expertise, we also offer our clients personal service. We know that when you need to file a claim, you want someone you can talk to who will help you through the process. At Luxe Insurance Brokers, we are always here to help our clients get the most out of their insurance policies.
-        </p>
-          <a class="button-link"
-                href="https://luxeinsurancebrokers.com/">Visit Us</a>
-      </section>
+          <br />
+          <h2 style="text-align: center">Convenience</h2>
+          <p>
+            It can be difficult to think of everything you need when you’re
+            moving. Packing up your belongings, finding a new place to live, and
+            making sure your life is in order can be daunting tasks. This is
+            where an insurance agency can come in handy. An insurance agency can
+            help take the load off your shoulders by helping you find the right
+            insurance policy for your needs. They can also help you with any
+            questions or concerns you may have about your policy. Having an
+            insurance policy through an agency gives you peace of mind knowing
+            that if something happens, you and your family are taken care of.
+          </p>
+          <p>
+            An insurance policy is one of the most important things you can
+            purchase for yourself and your family. It provides security in case
+            of an emergency. When you have an insurance policy, you don’t have
+            to worry about the costs associated with an accident or illness. An
+            insurance policy will help cover the costs so you can focus on
+            getting better.
+          </p>
+        </section>
 
-      <section>
-        <div style="display:flex; justify-content:center">
-          <img src="https://lh3.googleusercontent.com/geougc/AF1QipM-is7h5IKBcUPoXKnwBPGXCXHGsp4_28UkX1Bo=h400-no" alt="Insurance Agency Scottsdale, Arizona">
-        </div>
-        <br>
-        <h2 style="text-align:center">
-          Convenience
-        </h2>
-        <p>
-          It can be difficult to think of everything you need when you’re moving. Packing up your belongings, finding a new place to live, and making sure your life is in order can be daunting tasks. This is where an insurance agency can come in handy. An insurance agency can help take the load off your shoulders by helping you find the right insurance policy for your needs. They can also help you with any questions or concerns you may have about your policy. Having an insurance policy through an agency gives you peace of mind knowing that if something happens, you and your family are taken care of.
-        </p>
-        <p>
-          An insurance policy is one of the most important things you can purchase for yourself and your family. It provides security in case of an emergency. When you have an insurance policy, you don’t have to worry about the costs associated with an accident or illness. An insurance policy will help cover the costs so you can focus on getting better.
-        </p>
-      </section>
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://secureservercdn.net/198.71.233.70/n8e.647.myftpupload.com/wp-content/uploads/2021/09/Excess-Liability-Insurance-1024x576.jpg"
+              alt="Insurance Agency Scottsdale, Arizona"
+            />
+          </div>
+          <br />
+          <h2 style="text-align: center">Savings</h2>
+          <p>
+            Most people understand the importance of having insurance, but many
+            don’t realize all the different ways it can benefit them. One of the
+            most important benefits is the savings a person can enjoy. By
+            choosing to go with an insurance agency rather than an individual
+            provider, a person can save up to 50% on their premiums. That’s a
+            significant amount of money that can be put toward other things in
+            life.
+          </p>
+          <p>
+            Another big benefit of using an insurance agency is that they have
+            more options available to their clients. An individual provider
+            might only offer a few policies, while an insurance agency will have
+            dozens if not hundreds of different policies from which to choose.
+            This allows clients to find exactly what they need without having to
+            compromise on coverage or price.
+          </p>
+        </section>
 
-      <section>
-        <div style="display:flex; justify-content:center">
-          <img src="https://secureservercdn.net/198.71.233.70/n8e.647.myftpupload.com/wp-content/uploads/2021/09/Excess-Liability-Insurance-1024x576.jpg" alt="Insurance Agency Scottsdale, Arizona">
-        </div>
-        <br>
-        <h2 style="text-align:center">
-          Savings
-        </h2>
-        <p>
-          Most people understand the importance of having insurance, but many don’t realize all the different ways it can benefit them. One of the most important benefits is the savings a person can enjoy. By choosing to go with an insurance agency rather than an individual provider, a person can save up to 50% on their premiums. That’s a significant amount of money that can be put toward other things in life.
-        </p>
-        <p>
-          Another big benefit of using an insurance agency is that they have more options available to their clients. An individual provider might only offer a few policies, while an insurance agency will have dozens if not hundreds of different policies from which to choose. This allows clients to find exactly what they need without having to compromise on coverage or price.
-        </p>
-      </section>
-      
-      <section>
-        <div style="display:flex; justify-content:center">
-          <img src="https://secureservercdn.net/198.71.233.70/n8e.647.myftpupload.com/wp-content/uploads/2021/09/Life-Insurance-1024x576.jpg" alt="Insurance Agency Scottsdale, Arizona">
-        </div>
-        <br>
-        <h2 style="text-align:center">
-          Peace of Mind
-        </h2>
-        <p>
-          Insurance is an important step to take when you want to protect yourself, your family, and your assets. There are many different types of insurance policies available for people today. These policies range from health insurance, life insurance, home insurance, and car insurance. You can find affordable rates on these policies if you know where to look. One good place to start would be checking with a local agent at their office or through the internet.
-        </p>
-        <p>
-          Many people don’t realize how much they need this type of protection in their lives until it’s too late because without any means for income due to illness or death it becomes near impossible for those left behind to continue living a comfortable lifestyle that they had been accustomed too before the unfortunate event occurred. The only way to avoid this type of situation is to have a plan in place and that’s where insurance comes in.
-        </p>
-        <p>
-          When you buy an insurance policy, you are essentially buying yourself peace of mind. knowing that if something happens to you, your loved ones will be taken care of financially. This can be a huge relief for many people and can give them the freedom to enjoy life without worrying about what will happen if something goes wrong.
-        </p>
-        <p>
-          There are many benefits of having an insurance agency. Luxe Insurance Brokers is a trusted and reliable insurance agency in Scottsdale. We offer a variety of insurance products and services to our clients, including auto, home, <a href="https://luxeinsurancebrokers.com/business-owners-insurance-scottsdale-arizona/">business</a>, and <a href="https://luxeinsurancebrokers.com/individual-life-insurance-scottsdale-arizona/">life insurance</a>.
-        </p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=6940182445390805011">Find Us Here!</a>
-      </section>
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://secureservercdn.net/198.71.233.70/n8e.647.myftpupload.com/wp-content/uploads/2021/09/Life-Insurance-1024x576.jpg"
+              alt="Insurance Agency Scottsdale, Arizona"
+            />
+          </div>
+          <br />
+          <h2 style="text-align: center">Peace of Mind</h2>
+          <p>
+            Insurance is an important step to take when you want to protect
+            yourself, your family, and your assets. There are many different
+            types of insurance policies available for people today. These
+            policies range from health insurance, life insurance, home
+            insurance, and car insurance. You can find affordable rates on these
+            policies if you know where to look. One good place to start would be
+            checking with a local agent at their office or through the internet.
+          </p>
+          <p>
+            Many people don’t realize how much they need this type of protection
+            in their lives until it’s too late because without any means for
+            income due to illness or death it becomes near impossible for those
+            left behind to continue living a comfortable lifestyle that they had
+            been accustomed too before the unfortunate event occurred. The only
+            way to avoid this type of situation is to have a plan in place and
+            that’s where insurance comes in.
+          </p>
+          <p>
+            When you buy an insurance policy, you are essentially buying
+            yourself peace of mind. knowing that if something happens to you,
+            your loved ones will be taken care of financially. This can be a
+            huge relief for many people and can give them the freedom to enjoy
+            life without worrying about what will happen if something goes
+            wrong.
+          </p>
+          <p>
+            There are many benefits of having an insurance agency. Luxe
+            Insurance Brokers is a trusted and reliable insurance agency in
+            Scottsdale. We offer a variety of insurance products and services to
+            our clients, including auto, home,
+            <a
+              href="https://luxeinsurancebrokers.com/business-owners-insurance-scottsdale-arizona/"
+              >business</a
+            >, and
+            <a
+              href="https://luxeinsurancebrokers.com/individual-life-insurance-scottsdale-arizona/"
+              >life insurance</a
+            >.
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=6940182445390805011"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26575.96081509137!2d-111.927678!3d33.631369!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x60507b29d5ebb813!2sLuxe%20Insurance%20Brokers!5e0!3m2!1sen!2sph!4v1649666518749!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Insurance%20Agency%20Scottsdale,%20Arizona</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26575.96081509137!2d-111.927678!3d33.631369!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x60507b29d5ebb813!2sLuxe%20Insurance%20Brokers!5e0!3m2!1sen!2sph!4v1649666518749!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Insurance%20Agency%20Scottsdale,%20Arizona</iframe
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.tripadvisor.com.ph/Attractions-g31350-Activities-Scottsdale_Arizona.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.tripadvisor.com.ph/Attractions-g31350-Activities-Scottsdale_Arizona.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.abc15.com/news/region-northeast-valley/scottsdale" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.abc15.com/news/region-northeast-valley/scottsdale"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://luxeinsurancebrokers.com/" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://luxeinsurancebrokers.com/"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>      
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/luxeinsurancebrokers-04-22/"
+            >https://rank-fortress-digital-agency.github.io/luxeinsurancebrokers-04-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://luxeinsurancebrokers-04-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://luxeinsurancebrokers-04-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a target="_bLank" href="https://joyful-treacle-fb5c39.netlify.app/"
+            >https://joyful-treacle-fb5c39.netlify.app/</a
+          >
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/LuxeInsuranceBrokers"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=6940182445390805011"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCZ9CaN9e7_EExQHImrlPO-w"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://luxeinsurancebrokers.com/">Main</a></li>
+            <li><a href="https://goo.gl/maps/XBENp7FhcugGeiFk7">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/LuxeInsuranceBrokers">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=6940182445390805011">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCZ9CaN9e7_EExQHImrlPO-w">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://luxeinsurancebrokers.com/">Main</a></li>
-          <li><a href="https://goo.gl/maps/XBENp7FhcugGeiFk7">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
